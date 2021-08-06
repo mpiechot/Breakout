@@ -38,7 +38,7 @@ void Start()
     }
 ```
 **Collisiondetection of the case: Ball hit a Brick**
-```
+```c#
 void OnCollisionEnter2D(Collision2D col)
 {
     if(col.gameObject.tag == "Ball")
