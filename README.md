@@ -24,18 +24,18 @@ public float yOffset = 3f;
 private List<GameObject> activeBricks;
 
 void Start()
+{
+    activeBricks = new List<GameObject>();
+    for(int row = 0; row < rows; row++)
     {
-        activeBricks = new List<GameObject>();
-        for(int row = 0; row < rows; row++)
+        for(int col = 0; col < cols; col++)
         {
-            for(int col = 0; col < cols; col++)
-            {
-                Brick newBrick = Instantiate<Brick>(brick, new Vector2(col*width+xOffset, row*height+yOffset), Quaternion.identity, bricks.transform);
-                newBrick.HP = Random.Range(1, 4);
-                activeBricks.Add(newBrick.gameObject);
-            }
+            Brick newBrick = Instantiate<Brick>(brick, new Vector2(col*width+xOffset, row*height+yOffset), Quaternion.identity, bricks.transform);
+            newBrick.HP = Random.Range(1, 4);
+            activeBricks.Add(newBrick.gameObject);
         }
     }
+}
 ```
 **Collisiondetection of the case: Ball hit a Brick**
 ```c#
